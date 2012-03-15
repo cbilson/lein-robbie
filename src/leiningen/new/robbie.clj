@@ -57,7 +57,8 @@
     (android-create data)
     (copy-files data
                 ["phonegap-1.4.1.js" "assets/www/phonegap-1.4.1.js"]
-                ["master.css" "assets/www/master.css"])
+                ["master.css" "assets/www/master.css"]
+                ["gitignore" ".gitignore"])
     (copy-binary-files data
                        ["phonegap-1.4.1.jar" "libs/phonegap-1.4.1.jar"]
                        ["icon.png" "res/drawable/icon.png"])
