@@ -10,6 +10,8 @@
     	android:anyDensity="true"
     	/>
 
+    <!-- TODO: Remove uncomment the permissions your app actually needs -->
+    <!--
     <uses-permission android:name="android.permission.CAMERA" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -26,14 +28,18 @@
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
+    -->
 
+    <!-- TODO: Enable features {{name}} uses -->
+    <!--
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.autofocus" />
+    -->
 
     <application android:icon="@drawable/icon" android:label="@string/app_name"
-    	android:debuggable="true">
+    	           android:debuggable="true">
 		<activity android:name="{{activity}}" android:label="@string/app_name" 
-				  android:configChanges="orientation|keyboardHidden">
+				      android:configChanges="orientation|keyboardHidden">
 			<intent-filter>
 				<action android:name="android.intent.action.MAIN" />
 				<category android:name="android.intent.category.LAUNCHER" />
@@ -46,5 +52,5 @@
         </activity>
     </application>
 
-	<uses-sdk android:minSdkVersion="5" />
+	<uses-sdk android:minSdkVersion="10" />
 </manifest> 

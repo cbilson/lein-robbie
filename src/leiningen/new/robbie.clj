@@ -1,6 +1,6 @@
 (ns leiningen.new.robbie
   (:use [clojure.java.shell :only [sh]]
-        [leiningen.new.templates :only [renderer render-text sanitize]]
+        [leiningen.new.templates :only [renderer render-text sanitize slurp-resource]]
         [clojure.java.io :as io]))
 
 (defn android-create [{:keys [target name package activity]}]
@@ -18,14 +18,21 @@
 
 (defn copy-files [{:keys [name] :as data} & paths]
   (doseq [[src-path dest-path] paths]
-    (let [src (io/file "src" "leiningen" "new" "robbie" src-path)
+    (let [content (slurp-resource (io/file "src" "leiningen" "new" "robbie" src-path))
           dest (io/file name dest-path)]
       (.mkdirs (.getParentFile dest))
-      (io/copy src dest))))
+      (spit dest content))))
+
+(defn copy-binary-files [{:keys [name] :as data} & paths]
+  (doseq [[src-path dest-path] paths]
+    (let [dest (io/file name dest-path)]
+      (.mkdirs (.getParentFile dest))
+      (with-open [input (-> (io/file "src" "leiningen" "new" "robbie" src-path) .getPath io/resource io/input-stream)]
+        (with-open [output (io/output-stream dest)]
+          (copy input output))))))
 
 (defn generate-files
   [{:keys [name] :as data} & items]
-  (.mkdir (io/file name))
   (doseq [item items]
     (let [[relative-path content] item
           path (io/file name relative-path)]
@@ -47,15 +54,17 @@
     (android-create data)
     (copy-files data
                 ["phonegap-1.4.1.js" "assets/www/phonegap-1.4.1.js"]
-                ["phonegap-1.4.1.jar" "libs/phonegap-1.4.1.jar"]
-                ["index.html" "assets/www/index.html"]
-                ["master.css" "assets/www/master.css"]
-                ["icon.png" "res/drawable/icon.png"]
-                ["phonegap.xml" "res/xml/phonegap.xml"]
-                ["plugins.xml" "res/xml/plugins.xml"])
+                ["master.css" "assets/www/master.css"])
+    (copy-binary-files data
+                       ["phonegap-1.4.1.jar" "libs/phonegap-1.4.1.jar"]
+                       ["icon.png" "res/drawable/icon.png"])
     (generate-files data
-             ["README.md" (render "README.md" data)]
-             ["project.clj" (render "project.clj" data)]
-             ["AndroidManifest.xml" (render "AndroidManifest.xml" data)]
-             [(:activity-path data) (render "Activity.java" data)]
-             [(str "src/" name "/core.cljs") (render "core.cljs" data)])))
+                    ["README.md" (render "README.md" data)]
+                    ["project.clj" (render "project.clj" data)]
+                    ["AndroidManifest.xml" (render "AndroidManifest.xml" data)]
+                    ["res/xml/phonegap.xml" (render "phonegap.xml" data)]
+                    ["res/xml/plugins.xml" (render "plugins.xml" data)]
+                    ["res/values/strings.xml" (render "strings.xml" data)]
+                    ["assets/www/index.html" (render "index.html" data)]
+                    [(str package-path "/" activity ".java") (render "Activity.java" data)]
+                    [(str "src-cljs/" name "/core.cljs") (render "core.cljs" data)])))

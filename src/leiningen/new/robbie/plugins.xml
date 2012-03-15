@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <plugins>
     <plugin name="App" value="com.phonegap.App"/>
-    <plugin name="Geolocation" value="com.phonegap.GeoBroker"/>
     <plugin name="Device" value="com.phonegap.Device"/>
+    <!-- TODO: enable the plugins you want to use -->
+    <!--
+    <plugin name="Geolocation" value="com.phonegap.GeoBroker"/>
     <plugin name="Accelerometer" value="com.phonegap.AccelListener"/>
     <plugin name="Compass" value="com.phonegap.CompassListener"/>
     <plugin name="Media" value="com.phonegap.AudioHandler"/>
@@ -16,4 +18,5 @@
     <plugin name="Temperature" value="com.phonegap.TempListener"/>
     <plugin name="FileTransfer" value="com.phonegap.FileTransfer"/>
     <plugin name="Capture" value="com.phonegap.Capture"/>
+    -->
 </plugins>

@@ -6,8 +6,17 @@ An Android app built with phonegap and clojurescript.
 
 ```bash
 lein deps
-lein run
+lein cljsbuild once
+ant debug install
 ```
+
+## Things to do after the app in generated
+
+* Change the content of `assets/www/index.html` to be like you want.
+* Change `AndroidManifest.xml` to have the permissions and features
+  {{name}} uses
+* Enable the phonegap plugins you want to use in `plugins.xml`
+* Write clojurescript code in `src-cljs`
 
 ## License
 
