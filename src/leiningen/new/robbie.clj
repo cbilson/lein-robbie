@@ -5,7 +5,7 @@
 
 (defn android-create [{:keys [target name package activity]}]
   (let [{:keys [exit err]}
-        (sh "/Users/cbilson/lib/android-sdk-mac_x86/tools/android" "create" "project"
+        (sh "android" "create" "project"
             "--target" target
             "--name" name
             "--path" name
