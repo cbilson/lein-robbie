@@ -1,7 +1,23 @@
 # lein-robbie
 
-A leiningen plugin for creating robbie applications - Android apps
-built using phonegap and clojurescript.
+> Robbie nodded his head - a small parallelepiped with rounded edges and
+> corners attached to a similar but much larger parallelepiped that
+> served as a torso by means of a short, flexible stalk - and obediently
+> faced the tree. A thin metal film descended over his glowing eyes, and
+> from within his body came a steady, resonant ticking.
+> "Don't peek now - and don't skip any numbers," warned Gloria, and
+> scurried for cover.
+
+> With unvarying regularity seconds were ticked off, and at the
+> hundredth, up went the eyelids and the glowing red of Robbie's eyes
+> swept the prospect.
+
+> --From Robbie, by Isaac Asimov. 
+> Published by Fictioneers, Inc. in 1940
+
+`lein-robbie` is a
+[leiningen](https://github.com/technomancy/leiningen) plugin for
+creating Android apps built using phonegap and clojurescript.
 
 ## Usage
 
@@ -50,6 +66,7 @@ Once you've got all the prerequisites installed, here's the basic workflow:
   catting/tailing the adb log, so I don't have to remember how to use
   the android tools to do this and so the cljsbuild happens whenever
   it needs to, instead of having a separate step.
+* Add example apps
 * Longer term: make an iOS and possibly other platform version if
   this.
 
