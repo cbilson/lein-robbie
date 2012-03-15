@@ -18,16 +18,18 @@
 
 (defn copy-files [{:keys [name] :as data} & paths]
   (doseq [[src-path dest-path] paths]
-    (let [content (slurp-resource (io/file "src" "leiningen" "new" "robbie" src-path))
+    (println "copying" src-path)
+    (let [content (slurp-resource (io/file "leiningen" "new" "robbie" src-path))
           dest (io/file name dest-path)]
       (.mkdirs (.getParentFile dest))
       (spit dest content))))
 
 (defn copy-binary-files [{:keys [name] :as data} & paths]
   (doseq [[src-path dest-path] paths]
+    (println "copying" src-path)
     (let [dest (io/file name dest-path)]
       (.mkdirs (.getParentFile dest))
-      (with-open [input (-> (io/file "src" "leiningen" "new" "robbie" src-path) .getPath io/resource io/input-stream)]
+      (with-open [input (-> (io/file "leiningen" "new" "robbie" src-path) .getPath io/resource io/input-stream)]
         (with-open [output (io/output-stream dest)]
           (copy input output))))))
 
@@ -36,6 +38,7 @@
   (doseq [item items]
     (let [[relative-path content] item
           path (io/file name relative-path)]
+      (println "Generating" relative-path)
       (.mkdirs (.getParentFile path))
       (spit path content))))
 
