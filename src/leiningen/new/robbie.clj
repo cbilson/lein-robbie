@@ -70,7 +70,6 @@
     (reduce $concat left-project-data [:scripts :stylesheets :template-files :text-files :binary-files])))
 
 (defn- generate-project [{:keys [text-files binary-files template-files] :as project-data}]
-  (clojure.pprint/pprint project-data)
   (android-create project-data)
   (copy-files project-data text-files)
   (copy-binary-files project-data binary-files)
@@ -86,16 +85,16 @@
   {:target "android-7"
    :framework :none
    :stylesheets [{:href "master.css"}]
-   :scripts [{:src "phonegap-1.4.1.js"}]
-   :text-files [["phonegap-1.4.1.js" "assets/www/phonegap-1.4.1.js"]
+   :scripts [{:src "cordova-1.5.0.js"}]
+   :text-files [["cordova-1.5.0.js" "assets/www/cordova-1.5.0.js"]
                 ["master.css" "assets/www/master.css"]
                 ["gitignore" ".gitignore"]]
-   :binary-files [["phonegap-1.4.1.jar" "libs/phonegap-1.4.1.jar"]
+   :binary-files [["cordova-1.5.0.jar" "libs/cordova-1.5.0.jar"]
                   ["icon.png" "res/drawable/icon.png"]]
    :template-files [["README.md"]
                     ["project.clj"]
                     ["AndroidManifest.xml"]
-                    ["phonegap.xml" "res/xml/phonegap.xml"]
+                    ["cordova.xml" "res/xml/cordova.xml"]
                     ["plugins.xml" "res/xml/plugins.xml"]
                     ["strings.xml" "res/values/strings.xml"]
                     ["index.html" "assets/www/index.html"]]})
