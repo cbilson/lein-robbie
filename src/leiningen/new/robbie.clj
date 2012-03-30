@@ -43,10 +43,20 @@
       (.mkdirs (.getParentFile path))
       (spit path content))))
 
+(defn- options->keyword-map [options]
+  (let [pairs (partition 2 options)
+        keys (map (comp keyword first) pairs)
+        vals (map second pairs)]
+    (zipmap keys vals)))
+
+(def default-options
+  {:target "android-7"})
+
 (defn ^:no-project-needed robbie
   "An Android Phonegap ClojureScript project template"
-  [name & {:keys [target] :or {:target "android-4"}}]
-  (let [sanitized-name (sanitize name)
+  [name & specified-options]
+  (let [{:keys [target]} (merge default-options (options->keyword-map specified-options))
+        sanitized-name (sanitize name)
         package-path (str "src/com/" sanitized-name)
         activity (str (clojure.string/capitalize sanitized-name) "Activity")
         data {:name sanitized-name
@@ -58,8 +68,7 @@
     (copy-files data
                 ["phonegap-1.4.1.js" "assets/www/phonegap-1.4.1.js"]
                 ["master.css" "assets/www/master.css"]
-                ["gitignore" ".gitignore"]
-                ["phonegap-externs.js" "resources/externs/phonegap-externs.js"])
+                ["gitignore" ".gitignore"])
     (copy-binary-files data
                        ["phonegap-1.4.1.jar" "libs/phonegap-1.4.1.jar"]
                        ["icon.png" "res/drawable/icon.png"])
