@@ -4,13 +4,17 @@
     <meta name="viewport" content="width=320; user-scalable=no" />
     <meta http-equiv="Content-type" content="text/html; charset=utf-8">
     <title>{{name}}</title>
-	  <link rel="stylesheet" href="master.css" type="text/css" media="screen" title="no title">
-	  <script type="text/javascript" charset="utf-8" src="phonegap-1.4.1.js"></script>
-	  <script type="text/javascript" charset="utf-8" src="{{name}}.js"></script>
+    {{#stylesheets}}
+	  <link rel="stylesheet" href="{{href}}" type="text/css" media="screen">
+    {{/stylesheets}}
+    {{#scripts}}
+	  <script type="text/javascript" charset="utf-8" src="{{src}}"></script>
+    {{/scripts}}
   </head>
   <body>
     <h1>Welcome to {{name}}!</h1>
     <h2>this file is located at assets/www/index.html</h2>
     <p><em>TODO:</em> Actually implement {{name}}</p>
   </body>
+	<script type="text/javascript" charset="utf-8" src="{{name}}.js"></script>
 </html>
