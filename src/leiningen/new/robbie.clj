@@ -43,6 +43,7 @@
       (spit path content))))
 
 (defn robbie
+(defn ^:no-project-needed robbie
   "An Android Phonegap ClojureScript project template"
   [name]
   (let [target "android-10"
