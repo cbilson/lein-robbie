@@ -4,6 +4,7 @@
         [clojure.java.io :as io]))
 
 (defn android-create [{:keys [target name package activity]}]
+  (println "Creating android project targeting" target)
   (let [{:keys [exit err]}
         (sh "android" "create" "project"
             "--target" target
@@ -42,11 +43,10 @@
       (.mkdirs (.getParentFile path))
       (spit path content))))
 
-(defn robbie
+(defn ^:no-project-needed robbie
   "An Android Phonegap ClojureScript project template"
-  [name]
-  (let [target "android-10"
-        sanitized-name (sanitize name)
+  [name & {:keys [target] :or {:target "android-4"}}]
+  (let [sanitized-name (sanitize name)
         package-path (str "src/com/" sanitized-name)
         activity (str (clojure.string/capitalize sanitized-name) "Activity")
         data {:name sanitized-name
