@@ -1,6 +1,6 @@
 (ns leiningen.new.robbie
   (:use [clojure.java.shell :only [sh]]
-        [leiningen.new.templates :only [renderer render-text sanitize slurp-resource]]
+        [leiningen.new.templates :only [renderer sanitize slurp-resource]]
         [clojure.java.io :as io]))
 
 (defn- android-create [{:keys [target name package activity]}]
