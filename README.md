@@ -16,7 +16,7 @@
 > Published by Fictioneers, Inc. in 1940
 
 `lein-robbie` is a
-[leiningen](https://github.com/technomancy/leiningen) plugin for
+[leiningen][1] plugin for
 creating Android apps built using phonegap and clojurescript.
 
 ## Usage
@@ -53,6 +53,24 @@ Once you've got all the prerequisites installed, here's the basic workflow:
     $ lein cljsbuild once && ant debug install
     
     # goto 'launch your app'
+    
+It's also possible to specify which version of Android you wish to
+target:
+
+    $ lein new robbie myapp target android-10
+    
+You can always change this later in the generated AndroidManifest.xml
+file in your project.
+
+You can also tell robbie you'd like to include a javascript framework
+with the project. Currently only [jQuery Mobile 1.0][2] and
+[jQuery Mobile 1.1 RC1][3] are supported:
+
+    $ lein new robbie myapp target android-10 framework jquery-mobile-1.0
+
+or
+
+    $ lein new robbie myapp target android-10 framework jquery-mobile-1.1
 
 ## TODO
 
@@ -60,7 +78,7 @@ Once you've got all the prerequisites installed, here's the basic workflow:
   debug install`. My understanding is that I can just make a new
   `leiningen/install` function and it will override the default one as
   long
-  [as it's newer than the leiningen built-in install task](https://github.com/technomancy/leiningen/issues/415).
+  [as it's newer than the leiningen built-in install task][4].
 * Maybe it would be better to use a hook? (as in, robert)
 * Add some subtasks for other android stuff, like release compiles,
   catting/tailing the adb log, so I don't have to remember how to use
@@ -78,3 +96,8 @@ Distributed under the Eclipse Public License, the same as Clojure.
 
 The phonegap portions are distributed under the Apache 2.0 license, as
 described in `LICENSE.phonegap`.
+
+[1]: https://github.com/technomancy/leiningen "Leiningen on Github"
+[2]: http://jquerymobile.com/demos/1.0.1/ "jQuery Mobile 1.0 Docs"
+[3]: http://jquerymobile.com/demos/1.1.0-rc.1/ "jQuery Mobile 1.1 RC1 Docs"
+[4]: https://github.com/technomancy/leiningen/issues/415
