@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <meta name="viewport" content="width=320; user-scalable=no" />
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8">
+    <title>cordova_app</title>
+	  <link rel="stylesheet" href="master.css" type="text/css" media="screen">
+	  <script type="text/javascript" charset="utf-8" src="cordova-1.5.0.js"></script>
+  </head>
+  <body>
+    <h1>Example Cordova Application</h1>
+    <h2>Device Info</h2>
+    <table>
+      <tbody>
+        <tr><td>Platform</td><td id='platformCell'></td></tr>
+        <tr><td>Version</td><td id='versionCell' /></tr>
+        <tr><td>UUID</td><td id='uuidCell' /></tr>
+        <tr><td>Name</td><td id='nameCell' /></tr>
+        <tr><td>Width</td><td id='widthCell' /></tr>
+        <tr><td>Height</td><td id='heightCell' /></tr>
+        <tr><td>Color Depth</td><td id='colorDepthCell' /></tr>
+        <tr>
+          <td>Compass</td>
+          <td>
+            <div><input id='enableCompassCheckbox' type='checkbox' /></div>
+            <div id='headingCell'>Off</div>
+          </td>
+        </tr>
+        <tr>
+          <td>REPL</td>
+          <td>
+            <button id='connectReplButton'>Connect</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+  <script type="text/javascript" charset="utf-8" src="cordova_app.js"></script>
+</html>
