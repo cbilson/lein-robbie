@@ -1,10 +1,10 @@
-package {{package}};
+package com.cordova_app;
 
 import android.app.Activity;
 import android.os.Bundle;
 import org.apache.cordova.*;
 
-public class {{activity}} extends DroidGap
+public class Cordova_appActivity extends DroidGap
 {
     @Override
     public void onCreate(Bundle savedInstanceState)
