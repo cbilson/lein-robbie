@@ -9,6 +9,5 @@
               [{:source-path "src-cljs"
                 :compiler
                 {:output-to "assets/www/{{name}}.js"
-                 :externs "resources/externs/phonegap-externs.js"
                  :optimizations :simple
                  :pretty-print true}}]})
