@@ -4,4 +4,5 @@
   :license {:name "Eclipse Public License"
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :eval-in-leiningen true
-  :deps [[lein-newnew "0.2.4"]])
+  :deps [[lein-newnew "0.3.4"]
+         [cljsbuild "0.2.5"]])

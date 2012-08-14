@@ -85,11 +85,11 @@
   {:target "android-7"
    :framework :none
    :stylesheets [{:href "master.css"}]
-   :scripts [{:src "cordova-1.5.0.js"}]
-   :text-files [["cordova-1.5.0.js" "assets/www/cordova-1.5.0.js"]
+   :scripts [{:src "cordova-2.0.0.js"}]
+   :text-files [["cordova-2.0.0.js" "assets/www/cordova-2.0.0.js"]
                 ["master.css" "assets/www/master.css"]
                 ["gitignore" ".gitignore"]]
-   :binary-files [["cordova-1.5.0.jar" "libs/cordova-1.5.0.jar"]
+   :binary-files [["cordova-2.0.0.jar" "libs/cordova-2.0.0.jar"]
                   ["icon.png" "res/drawable/icon.png"]]
    :template-files [["README.md"]
                     ["project.clj"]
