@@ -20,7 +20,7 @@
 (defn- copy-files [{:keys [name] :as data} paths]
   (doseq [[src-path dest-path] paths]
     (println "copying" src-path)
-    (let [content (slurp-resource (io/file "leiningen" "new" "robbie" src-path))
+    (let [content (-> (io/file "leiningen" "new" "robbie" src-path) (.getPath) slurp-resource)
           dest (io/file name (if (nil? dest-path) src-path dest-path))]
       (.mkdirs (.getParentFile dest))
       (spit dest content))))
@@ -82,7 +82,7 @@
     (zipmap keys vals)))
 
 (def default-options
-  {:target "android-7"
+  {:target "android-13"
    :framework :none
    :stylesheets [{:href "master.css"}]
    :scripts [{:src "cordova-2.0.0.js"}]

@@ -5,12 +5,13 @@ An Android app built with phonegap and clojurescript.
 ## Usage
 
 ```bash
-lein deps
 lein cljsbuild once
+android create avd -n robbie_test_image -t android-13
+emulator -avd robbie_test_image &
 ant debug install
 ```
 
-## Things to do after the app in generated
+## TODO
 
 * Change the content of `assets/www/index.html` to be like you want.
 * Change `AndroidManifest.xml` to have the permissions and features
