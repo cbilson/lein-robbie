@@ -33,8 +33,8 @@ or documentation.
 
 ## Installation
 
-To your `~/.lein/profiles.clj`, add a plugin entry for lein-robbie. Mine
-looks like this:
+Clone this repository, run `lein install`, and then, to your `~/.lein/profiles.clj`, 
+add a plugin entry for lein-robbie. Mine looks like this:
 
 ```clojure
 {:user {:plugins [[lein-swank "1.4.4"]
