@@ -86,10 +86,10 @@
    :framework :none
    :stylesheets [{:href "master.css"}]
    :scripts [{:src "cordova-2.0.0.js"}]
-   :text-files [["cordova-2.0.0.js" "assets/www/cordova-2.0.0.js"]
+   :text-files [["cordova-2.5.0.js" "assets/www/cordova-2.5.0.js"]
                 ["master.css" "assets/www/master.css"]
                 ["gitignore" ".gitignore"]]
-   :binary-files [["cordova-2.0.0.jar" "libs/cordova-2.0.0.jar"]
+   :binary-files [["cordova-2.5.0.jar" "libs/cordova-2.5.0.jar"]
                   ["icon.png" "res/drawable/icon.png"]]
    :template-files [["README.md"]
                     ["project.clj"]
@@ -103,8 +103,8 @@
   robbie
   "An Android Phonegap ClojureScript project template
 
- Give the name for your new project, followed by the following options:
-   target     the android version you want to target. [default: android-7]
+ Give the name for your new project, followed by key-val pairs of the following:
+   target     the android version you want to target. [default: android-17]
               Use `android list targets` to see what your options are.
    framework  include a javascript mobile framework [default: none]
               Options include: jquery-mobile-1.0, jquery-mobile-1.1"
